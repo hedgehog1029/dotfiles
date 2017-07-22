@@ -1,0 +1,176 @@
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+[bar/main]
+monitor = DisplayPort-0
+bottom = false
+fixed-center = true
+
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
+
+background = #00000000
+foreground = #ccffffff
+
+radius = 0.0
+padding = 2
+module-margin = 3
+
+font-0 = "NotoSans-Regular:size=8"
+font-1 = "FontAwesome:size=10"
+font-2 = "Pomodoro:size=10"
+font-3 = "TwitterColorEmoji:size=10"
+
+modules-left = clock volume discord
+modules-center = music
+modules-right = gh wlan date
+
+;tray-position = left
+;tray-maxsize = 16
+;tray-transparent = true
+
+[module/date]
+type = internal/date
+interval = 5.0
+date = %d/%m/%y
+
+label = %date%
+label-font = 1
+
+[module/clock]
+type = internal/date
+interval = 1.0
+
+date = %d/%m/%y
+time = %H:%M
+
+label =   %time%
+label-font = 1
+
+[module/volume]
+type = internal/volume
+
+format-volume = %{A3:pavucontrol &:}<ramp-volume>%{A}
+format-muted = %{A3:pavucontrol &:}<label-muted>%{A}
+
+label-muted = 
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/music]
+type = custom/script
+interval = 2
+
+label = %output:0:75:...%
+exec = /home/henry/.config/polybar/scripts/music.sh
+
+[module/discord]
+type = custom/script
+interval = 4
+
+label = %output%
+exec = /home/henry/.config/polybar/scripts/discord.sh
+
+[module/pomodoro]
+type = custom/script
+interval = 5
+
+label = %output%
+exec = /home/henry/.config/polybar/scripts/pomodoro.sh
+
+[module/wlan]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+ping-interval = 10
+
+format-connected = %{A3:nm-connection-editor &:}<label-connected>%{A}
+label-connected =    %local_ip%
+label-disconnected =   not connected
+label-disconnected-foreground = #99
+
+[module/gh]
+type = internal/github
+interval = 20
+token = ${file:/home/henry/.config/polybar/tokens/github.token}
+
+label =   %notifications%
+
+[bar/i3bar]
+bottom = true
+fixed-center = true
+override-redirect = false
+monitor = DisplayPort-0
+
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 5
+
+background = #00ffffff
+foreground = #f2f2f2
+linecolor = #bc92f8
+
+spacing = 3
+lineheight = 2
+padding_right = 4
+module_margin_left = 0
+module_margin_right = 6
+
+font-0 = "NotoSans-Regular:size=8"
+font-1 = "FontAwesome:size=10"
+font-2 = "Pomodoro:size=10"
+
+modules-left = i3
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+tray-position = right
+tray-background = #222222
+tray-maxsize = 16
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+enable-scroll = false
+wrapping-scroll = false
+
+ws-icon-0 = 2;
+ws-icon-1 = 3;
+ws-icon-2 = 4;
+ws-icon-default = 
+
+format = <label-state>
+format-margin = 4
+
+label-focused = %icon%
+label-unfocused = %icon%
+label-visible = %icon%
+label-urgent = %icon%
+
+label-focused-foreground = #111
+label-focused-background = #39cccc
+label-focused-underline = #39ccff
+label-focused-overline = #39ccff
+label-focused-padding = 4
+label-focused-margin = 1
+
+label-unfocused-foreground = #fff
+label-unfocused-background = #333
+labal-unfocused-underline = #222
+labal-unfocused-overline = #222
+label-unfocused-padding = 4
+label-unfocused-margin = 1
+
+label-urgent-foreground = #fff
+label-urgent-background = #ff851b
+label-urgent-underline = #dd851b
+label-urgent-overline = #dd851b
+label-urgent-padding = 4
+label-urgent-margin = 1

@@ -1,0 +1,41 @@
+[options]
+font = Fantasque Sans Mono 12px
+
+[colors]
+# special
+foreground      = #d0d0d0
+foreground_bold = #d0d0d0
+cursor          = #d0d0d0
+background      = rgba(0, 0, 0, 0.8)
+
+# black
+color0  = #111111
+color8  = #aaaaaa
+
+# red
+color1  = #ff4136
+color9  = #ff4136
+
+# green
+color2  = #01ff70
+color10 = #01ff70
+
+# yellow
+color3  = #f012be
+color11 = #f012be
+
+# blue
+color4  = #0074d9
+color12 = #0074d9
+
+# magenta
+color5  = #b10dc9
+color13 = #b10dc9
+
+# cyan
+color6  = #39cccc
+color14 = #39cccc
+
+# white
+color7  = #dddddd
+color15 = #ffffff
