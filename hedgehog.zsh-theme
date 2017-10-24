@@ -10,8 +10,6 @@ local return_side="%(?..%{$R%}%? ↵  %{$RESET%})"
 
 function gitStatusF() {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    user=$(git remote -v | grep "fetch" | cut -d'/' -f 4) || return
-    repo=$(git remote -v | grep "fetch" | cut -d'/' -f 5 | cut -d'.' -f 1) || return
     echo "(%B${ref#refs/heads/}%b%{$RESET%}) "
 }
 
