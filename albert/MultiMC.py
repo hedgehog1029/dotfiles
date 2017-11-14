@@ -49,8 +49,10 @@ class Instance:
     def format_item(self):
         delta = datetime.utcnow() - self.last_launch_time
         icon = self.find_icon()
+        action = ProcAction("Run Instance", [MULTIMC_HOME + "/MultiMC", "-l", self.name])
 
         item = Item(id=f"multimc.instance:{self.name}", text=self.name, subtext=f"Last launched: {human(delta)}", completion=self.name, icon=icon)
+        item.addAction(action)
         return item
 
     def sort_key(self):
