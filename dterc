@@ -1,0 +1,17 @@
+set tab-width 4
+set indent-width 4
+set detect-indent 2,4,8
+
+setenv EDITOR dte
+
+# git aliases
+alias git-commit "run git commit $FILE"
+alias git-commit-all "run git commit -a"
+alias git-branch "command git checkout "
+alias git-push "run -p git push"
+alias git-add "run git add $FILE"
+
+# bindings
+bind "C-K" git-commit-all
+bind "C-S-K" git-push
+bind "C-M-A" git-add
