@@ -1,9 +1,28 @@
 #!/bin/bash
 
-status=$(playerctl status 2> /dev/null)
+function spotifyctl() {
+    playerctl -p spotify $@ 2> /dev/null
+}
 
-if [[ $? -eq 0 ]]; then
-    metadata="$(playerctl metadata artist) - $(playerctl metadata title)"
+function audaciousctl() {
+    playerctl -p audacious $@ 2> /dev/null
+}
+
+function autoctl() {
+    playerctl -i chromium $@ 2> /dev/null
+}
+
+if [[ $(spotifyctl status) = "Playing" ]]; then
+    metadata="$(spotifyctl metadata artist) - $(spotifyctl metadata title)"
+    status="Playing"
+elif [[ $(audaciousctl status) = "Playing" ]]; then
+    metadata="$(audaciousctl metadata artist) - $(audaciousctl metadata title)"
+    status="Playing"
+elif [[ $(autoctl status) = "Paused" ]]; then
+    metadata="$(autoctl metadata artist) - $(autoctl metadata title)"
+    status="Paused"
+else
+    status="Stopped"
 fi
 
 if [[ $status = "Playing" ]]; then
