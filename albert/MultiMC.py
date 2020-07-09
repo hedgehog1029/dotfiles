@@ -1,3 +1,5 @@
+"""MultiMC albert launcher"""
+
 from albertv0 import *
 from datetime import datetime, timedelta
 from ago import human
@@ -9,7 +11,7 @@ with open(os.getenv("HOME") + "/.config/albert_modules.json") as fd:
 
 MULTIMC_HOME = gcfg["multimc_home"]
 
-__iid__ = "PythonInterface/v0.1"
+__iid__ = "PythonInterface/v0.2"
 __prettyname__ = "MultiMC Launcher"
 __version__ = "1.0"
 __trigger__ = "mmc "
@@ -75,4 +77,4 @@ def handleQuery(query):
 
         items = filter_instances(query.string, instances)
 
-        return items
+        return list(items)
