@@ -15,3 +15,6 @@ alias git-add "run git add $FILE"
 bind "C-K" git-commit-all
 bind "C-S-K" git-push
 bind "C-M-A" git-add
+
+bind "M-l" "select -l"
+bind "M-s" select
