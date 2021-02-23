@@ -1,6 +1,6 @@
 """MultiMC albert launcher"""
 
-from albertv0 import *
+from albert import *
 from datetime import datetime, timedelta
 from ago import human
 import os
@@ -11,12 +11,11 @@ with open(os.getenv("HOME") + "/.config/albert_modules.json") as fd:
 
 MULTIMC_HOME = gcfg["multimc_home"]
 
-__iid__ = "PythonInterface/v0.2"
-__prettyname__ = "MultiMC Launcher"
-__version__ = "1.0"
-__trigger__ = "mmc "
-__author__ = "offbeatwitch"
-__dependencies__ = ["multimc5"]
+__title__ = "MultiMC Launcher"
+__version__ = "0.4.1"
+__triggers__ = "mmc "
+__authors__ = "offbeatwitch"
+__py_deps__ = "ago"
 
 default_icon = MULTIMC_HOME + "/multimc.png"
 
